@@ -81,8 +81,8 @@ tls_ca_path: "/etc/ssl/certs/"
 # specify a different port
 #
 listen_addresses:
-  -  0.0.0.0@53
-  -  0:0:0:0:0:0:0:0@53
+  -  0.0.0.0@53000
+  -  0:0:0:0:0:0:0:0@53000
 
 ############################### DNSSEC SETTINGS ################################
 # Require DNSSEC validation. For releases earlier than 1.2 a trust anchor must
@@ -112,10 +112,10 @@ upstream_recursive_servers:
     tls_auth_name: "cloudflare-dns.com"
 
 ## Google
-#  - address_data: 8.8.8.8
-#    tls_auth_name: "dns.google"
-#  - address_data: 8.8.4.4
-#    tls_auth_name: "dns.google"
+  - address_data: 8.8.8.8
+    tls_auth_name: "dns.google"
+  - address_data: 8.8.4.4
+    tls_auth_name: "dns.google"
 
 ## getdnsapi.net
 #  - address_data: 185.49.141.37
