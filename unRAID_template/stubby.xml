@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>stubby</Name>
-  <Repository>fdm80/stubby:latest</Repository>
-  <Registry>https://hub.docker.com/r/fdm80/stubby/</Registry>
+  <Repository>c0rv4x/stubby-unraid:latest</Repository>
+  <Registry>https://hub.docker.com/r/c0rv4x/stubby-unraid/</Registry>
   <Network>br0</Network>
   <MyIP/>
   <Shell>sh</Shell>
