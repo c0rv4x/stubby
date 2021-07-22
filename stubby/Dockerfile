@@ -117,6 +117,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /opt/stubby
+RUN apt install -y netcat
 
 EXPOSE 53/tcp 53/udp
 
