@@ -108,11 +108,19 @@ RUN set -e -x && \
       /tmp/* \
       /var/tmp/* \
       /var/lib/apt/lists/*
+RUN apt-get update && apt install -y dnsmasq
+RUN setcap 'cap_net_bind_service=+eip' /usr/sbin/dnsmasq 
+
+RUN apt install -y procps lsof
+COPY dnsmasq.conf /etc/my-dnsmasq.conf
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 WORKDIR /opt/stubby
 
-EXPOSE 53000/tcp 53000/udp
+EXPOSE 53/tcp 53/udp
 
-HEALTHCHECK --interval=10m --timeout=30s --start-period=10s --retries=2 CMD drill @127.0.0.1 -p 53000 cloudflare.com || exit 1
+HEALTHCHECK --interval=10m --timeout=30s --start-period=30s --retries=2 CMD drill @127.0.0.1 -p 53 cloudflare.com || exit 1
 
-CMD ["/opt/stubby/bin/stubby", "-C", "/opt/stubby/etc/stubby/stubby.yml"]
+# CMD ["/opt/stubby/bin/stubby", "-C", "/opt/stubby/etc/stubby/stubby.yml"]
+ENTRYPOINT ["/entrypoint.sh"] 
