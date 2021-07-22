@@ -3,7 +3,7 @@
   <Name>stubby</Name>
   <Repository>c0rv4x/stubby-unraid:latest</Repository>
   <Registry>https://hub.docker.com/r/c0rv4x/stubby-unraid/</Registry>
-  <Network>br0</Network>
+  <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
@@ -24,7 +24,7 @@ The stubby.yml can be edited to use different DNS servers.</Overview>
   <DonateLink/>
   <Description>Stubby is the name given to a mode of using getdns which enables it to act as a local DNS Privacy stub resolver (using DNS-over-TLS)</Description>
   <Networking>
-    <Mode>br0</Mode>
+    <Mode>bridge</Mode>
     <Publish>
       <Port>
         <HostPort>53</HostPort>
@@ -43,5 +43,4 @@ The stubby.yml can be edited to use different DNS servers.</Overview>
   <Labels/>
   <Config Name="Host Port 1" Target="" Default="53" Mode="tcp" Description="Container Port 5555" Type="Port" Display="always" Required="true" Mask="false">53</Config>
   <Config Name="Host Port 2" Target="" Default="53" Mode="udp" Description="Container Port 5555" Type="Port" Display="always" Required="true" Mask="false">53</Config>
-  <Config Name="Appdata" Target="/opt/stubby/etc/stubby/" Default="/mnt/user/appdata/stubby/" Mode="rw" Description="Appdata location" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/stubby/</Config>
 </Container>
