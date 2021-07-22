@@ -119,9 +119,9 @@ RUN chmod +x /entrypoint.sh
 WORKDIR /opt/stubby
 RUN apt install -y netcat
 
-EXPOSE 53/tcp 53/udp
+EXPOSE 5555/tcp 5555/udp
 
-HEALTHCHECK --interval=10m --timeout=30s --start-period=30s --retries=2 CMD drill @127.0.0.1 -p 53 cloudflare.com || exit 1
+HEALTHCHECK --interval=10m --timeout=30s --start-period=30s --retries=2 CMD drill @127.0.0.1 -p 5555 cloudflare.com || exit 1
 
 # CMD ["/opt/stubby/bin/stubby", "-C", "/opt/stubby/etc/stubby/stubby.yml"]
 ENTRYPOINT ["/entrypoint.sh"] 
