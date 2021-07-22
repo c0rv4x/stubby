@@ -38,13 +38,7 @@ The stubby.yml can be edited to use different DNS servers.</Overview>
       </Port>
     </Publish>
   </Networking>
-  <Data>
-    <Volume>
-      <HostDir>/mnt/user/appdata/stubby/</HostDir>
-      <ContainerDir>/opt/stubby/etc/stubby/</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-  </Data>
+  <Data />
   <Environment/>
   <Labels/>
   <Config Name="Host Port 1" Target="" Default="53" Mode="tcp" Description="Container Port 5555" Type="Port" Display="always" Required="true" Mask="false">53</Config>
